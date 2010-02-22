@@ -1,0 +1,17 @@
+JAVA_CLASSPATH="commons-logging.jar:junit.jar:xalan.jar"
+inherit ant
+
+
+HOMEPAGE="http://jakarta.apache.org/bsf/"
+SRC_URI="mirror://apache/jakarta/bsf/source/${ORIG_PN}-src-${PV}.tar.gz
+         mirror://portage/dev-java/bsf/files/bsf-${PV}-build-properties.xml"
+
+CYGPORT_USE_UNSTABLE_API=1
+src_unpack_hook() {
+	mv -f bsf-${PV}-build-properties.xml build-properties.xml
+	rm -f lib/*.jar
+}
+
+ANT_BUILD_TARGETS="jar javadocs"
+ANT_INSTALL_JARS="lib/*.jar"
+ANT_INSTALL_JAVADOC="build/javadocs"
