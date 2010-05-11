@@ -1,4 +1,4 @@
-JAVA_CLASSPATH="commons-logging.jar:junit.jar:xalan.jar"
+JAVA_CLASSPATH="commons-logging.jar:jacl.jar:tcljava.jar:js.jar:xalan.jar"
 inherit ant
 
 
@@ -12,6 +12,6 @@ src_unpack_hook() {
 	rm -f lib/*.jar
 }
 
-ANT_BUILD_TARGETS="jar javadocs"
-ANT_INSTALL_JARS="lib/*.jar"
-ANT_INSTALL_JAVADOC="build/javadocs"
+ANT_BUILD_TARGETS="bindist"
+ANT_INSTALL_JARS="dist/bsf-${PV}/lib/*.jar"
+ANT_INSTALL_JAVADOC="dist/bsf-${PV}/docs/api"
